@@ -71,7 +71,7 @@ Coordinate& Game::determineSpecialTiles()
 	size_t row = level.size();
 	size_t col = level[1].size();
 
-	Coordinate player_coords;
+	static Coordinate player_coords(0,0);
 
 	for (int i = 0; i < row; i++)
 	{
@@ -91,11 +91,15 @@ void Game::resetBoard(const std::vector<std::vector<int>>& _newLevel)
 {
 	goalPositions.clear();
 
-	currentBoard = new Board(_newLevel);
+	if(currentBoard != nullptr) delete currentBoard;
 
+	if(currentPlayer != nullptr) delete currentPlayer;
+
+	currentBoard = new Board(_newLevel);
+	
 	currentPlayer = new Player(determineSpecialTiles());
 
-	goalsCount = goalPositions.size();
+	goalsCount = (int)goalPositions.size();
 }
 
 bool Game::winCondition()

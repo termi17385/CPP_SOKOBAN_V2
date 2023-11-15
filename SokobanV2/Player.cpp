@@ -23,10 +23,11 @@ Player::Player(Coordinate _setPosition)
 
 Coordinate& Player::moveDirection()
 {
-	auto coord = Coordinate(0, 0);
+	static auto coord = Coordinate(0, 0);
+
 	std::cout << "Please input a move! (w,a,s,d) quit or restart (q/r): ";
 
-	char input;
+	static char input;
 
 	std::cin >> input;
 

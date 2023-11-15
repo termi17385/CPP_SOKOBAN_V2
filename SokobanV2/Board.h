@@ -23,6 +23,8 @@ private:
 
 public:
 
+	std::vector<std::vector<int>> currentLevelClean;
+
 	Board() = default;
 	
 	Board(const std::vector<std::vector<int>>& currentLevel)
@@ -46,5 +48,4 @@ public:
 
 	void displayBoard();
 
-	std::vector<std::vector<int>> currentLevelClean;
 };

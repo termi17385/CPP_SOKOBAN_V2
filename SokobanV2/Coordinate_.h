@@ -4,8 +4,8 @@
 
 struct Coordinate
 {
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 
 	Coordinate(int _x, int _y) : x(_x), y(_y) { }
 

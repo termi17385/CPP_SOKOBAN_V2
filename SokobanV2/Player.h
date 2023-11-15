@@ -21,8 +21,9 @@ public:
 
 private:
 
-	Coordinate& moveDirection();
+	Coordinate currentPosition = Coordinate(0,0);
 	std::map<char, Coordinate*> inputMap;
-	Coordinate currentPosition;
+
+	Coordinate& moveDirection();
 	void currentPositionNamed(TileType);
 };

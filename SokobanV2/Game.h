@@ -28,7 +28,7 @@ public:
 	{
 		currentPlayer = new Player(determineSpecialTiles());
 
-		goalsCount = goalPositions.size();
+		goalsCount = (int)goalPositions.size();
 
 		currentLevel = _currentLevel;
 	}
@@ -37,7 +37,7 @@ public:
 	{
 		currentPlayer = new Player(determineSpecialTiles());
 		
-		goalsCount = goalPositions.size();
+		goalsCount = (int)goalPositions.size();
 
 		currentLevel = LEVELONE;
 	}
@@ -46,7 +46,7 @@ public:
 
 	std::vector<std::vector<int>>& getCurrentLevel() { return currentBoard->currentLevelClean; }
 
-	LevelType currentLevel;
+	LevelType currentLevel = LEVELONE;
 
 	~Game()
 	{
@@ -60,9 +60,9 @@ private:
 
 	void resetBoard(const std::vector<std::vector<int>>&);
 
-	Board* currentBoard;
+	Board* currentBoard = nullptr;
 	
-	Player* currentPlayer;
+	Player* currentPlayer = nullptr;
 
 	std::vector<Coordinate> goalPositions;
 
